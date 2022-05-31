@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Source+Sans+Pro:wght@400&display=swap');
+
+/* GENERAL ELEMENTS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background: linear-gradient(to right bottom, #396afc, #2948ff);
+  height: 100vh;
+  color: #eee;
+  font-family: 'Source Sans Pro';
+
+  overflow: hidden;
+}
+h1 {
+  font-size: 4.8rem;
+  text-align: center;
+}
+
+h2 {
+  font-weight: 300;
+  font-size: 2.4rem;
+  color: #222;
+}
+
+.container {
+  max-width: 40rem;
+  margin: 2.4rem auto;
+}
+
+/* TODO ELEMENTS*/
+.todo__container {
+  margin-top: 4.8rem;
+}
+
+.todo__input {
+  width: 100%;
+  padding: 1.2rem 1rem;
+  margin-bottom: 4.8rem;
+  font-size: 1.4rem;
+  color: #848482;
+  outline: none;
+  background: #e5e4e2;
+  border: none;
+}
+
+.todo__task-container {
+  margin-top: 1.6rem;
+  background: #c9c0bb;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.todo__text {
+  margin-left: 1.2rem;
+  color: #232b2b;
+  font-size: 1.4rem;
+}
+
+/* ICONS */
+.icon {
+  font-size: 2.2rem;
+  color: #fff;
+  --ionicon-stroke-width: 32px;
+}
+.icons-container {
+  display: flex;
+  align-items: center;
+}
+.icon-container {
+  padding: 1rem;
+  cursor: pointer;
+}
+.icon-container--done {
+  background-color: #32cd32;
+}
+.icon-container--delete {
+  background: #c80815;
+}
+
+/* 
+- Font sizes
+10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 64 / 74 / 86 / 98
+
+- Spacing system (px)
+2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+*/
