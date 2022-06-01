@@ -44,10 +44,9 @@ inputEl.addEventListener('keydown', (e) => {
 
     deleteIcon.forEach((i) => workTodo(i));
     iconDone.forEach((i) => workTodo(i));
+    inputEl.value = '';
   }
 
   // If input is empty
   else if (e.key === 'Enter') errorMssg.style.display = 'block';
-
-  inputEl.value = '';
 });
