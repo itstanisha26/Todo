@@ -14,20 +14,19 @@
       <div class="todo__container">
         <div class="icons-container">
           <input
+            maxlength="45"
             type="text"
             class="todo__input"
             placeholder="List your todo now!"
           />
-          <div class="icon-container icon-container--done">
-            <ion-icon name="checkmark-outline" class="icon done-icon">
-            </ion-icon>
+
+          <div class="icon-container icon-container--add">
+            <ion-icon name="add-outline" class="icon add-icon"></ion-icon>
           </div>
         </div>
         <h2>Work to complete</h2>
         <div class="todo__task-container">
-          <div class="todo__task todo__text--encourage">
-            <span class="todo__text">Do some work now! </span>
-          </div>
+          <p class="todo__text--encourage">Have no work to-do! Enjoy ;)</p>
         </div>
       </div>
       <p class="error">Please write something!</p>

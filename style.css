@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@400;500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Source+Sans+Pro:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@400;500&display=swap');
 
 /* GENERAL ELEMENTS */
 * {
@@ -12,22 +11,27 @@ html {
 }
 
 body {
-  background: linear-gradient(to right bottom, #396afc, #2948ff);
+  background: #111111;
   height: 100vh;
-  color: #eee;
-  font-family: 'Source Sans Pro';
-
-  overflow: hidden;
+  font-family: 'Inter';
+  font-weight: 400;
 }
 h1 {
   font-size: 4.8rem;
   text-align: center;
+  font-weight: 800;
+  background-image: linear-gradient(45deg, #e52ee5, #ff7e44);
+  background-size: 100%;
+  background-repeat: repeat;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 h2 {
-  font-weight: 300;
-  font-size: 2.4rem;
-  color: #222;
+  font-weight: 500;
+  font-size: 2rem;
+  color: #ece9e4;
+  display: none;
 }
 
 .container {
@@ -41,19 +45,26 @@ h2 {
 }
 
 .todo__input {
-  width: 100%;
+  width: 100vw;
   padding: 1.2rem 1rem;
   margin-bottom: 4.8rem;
-  font-size: 1.4rem;
-  color: #848482;
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: #333;
   outline: none;
-  background: #e5e4e2;
+  background: #fff;
   border: none;
+  border-radius: 4px;
+}
+
+.todo__input ::placeholder {
+  font-family: inherit;
 }
 
 .todo__task {
   margin-top: 1.6rem;
-  background: #c9c0bb;
+  background: #ff7e44;
+  border-radius: 4px;
 
   display: flex;
   align-items: center;
@@ -70,7 +81,9 @@ h2 {
   font-size: 1.4rem;
 }
 .todo__text--encourage {
-  padding: 1rem 0.6rem;
+  color: #00e599;
+  font-size: 1.6rem;
+  font-weight: 500;
 }
 
 .error {
@@ -82,7 +95,7 @@ h2 {
 }
 /* ICONS */
 .icon {
-  font-size: 2.2rem;
+  font-size: 2.4rem;
   color: #fff;
   --ionicon-stroke-width: 32px;
 }
@@ -91,14 +104,25 @@ h2 {
   align-items: flex-start;
 }
 .icon-container {
+  border-radius: 4px;
   padding: 0.8rem;
   cursor: pointer;
 }
 .icon-container--done {
-  background-color: #32cd32;
+  background-color: #7dff6e;
+  border-radius: 4px 0 0 4px;
 }
 .icon-container--delete {
-  background: #c80815;
+  background: #ff5353;
+  border-radius: 0 4px 4px 0;
+}
+
+.icon-container--add {
+  margin-left: -5px;
+  background: #a125a1;
+  /* padding: 0.8rem; */
+  color: #000;
+  border-radius: 0 4px 4px 0;
 }
 
 /*? RESPONSIVE */

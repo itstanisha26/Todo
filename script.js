@@ -5,24 +5,33 @@ const todoContainer = document.querySelector('.todo__container');
 const errorMssg = document.querySelector('.error');
 const textEncourage = document.querySelector('.todo__text--encourage');
 const todoTaskContainer = document.querySelector('.todo__task-container');
+const h2 = document.querySelector('h2');
+
+const colors = ['#FFD333', '#FF7E44', '#FF4060', '#E52EE5', '#C34CFF'];
+const randomColor = () => Math.floor(Math.random() * colors.length);
+let todoArray = [];
 
 inputEl.addEventListener('keydown', (e) => {
   let inputValue = inputEl.value;
   errorMssg.style.display = 'none';
   textEncourage.style.display = 'none';
 
+  todoArray.push(inputValue);
+  let filteredArray = todoArray.filter((t) => t !== '');
+
   if (inputValue && e.key === 'Enter') {
+    h2.style.display = 'block';
     const todo = document.createElement('p');
 
     todo.innerHTML = `
-    <div class='todo__task'>
+    <div class='todo__task' style="background: ${colors[randomColor()]}">
        <span class='todo__text'> ${inputValue}</span>
        <div class='icons-container'>
          <div class='icon-container icon-container--done'>
-           <ion-icon name='checkmark-outline' class='icon done-icon'></ion-icon>
+           <ion-icon name='checkmark-outline' color='black' class='icon done-icon'></ion-icon>
          </div>
          <div class='icon-container icon-container--delete'>
-           <ion-icon name='trash-outline' class='icon delete-icon'></ion-icon>
+           <ion-icon name='trash-outline' color='black' class='icon delete-icon'></ion-icon>
          </div>
        </div>
      </div>
@@ -44,6 +53,7 @@ inputEl.addEventListener('keydown', (e) => {
 
     deleteIcon.forEach((i) => workTodo(i));
     iconDone.forEach((i) => workTodo(i));
+
     inputEl.value = '';
   }
 
