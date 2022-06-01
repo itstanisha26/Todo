@@ -51,7 +51,7 @@ h2 {
   border: none;
 }
 
-.todo__task-container {
+.todo__task {
   margin-top: 1.6rem;
   background: #c9c0bb;
 
@@ -59,11 +59,18 @@ h2 {
   align-items: center;
   justify-content: space-between;
 }
+.todos__container {
+  display: flex;
+  flex-direction: column;
+}
 
 .todo__text {
   margin-left: 1.2rem;
   color: #232b2b;
   font-size: 1.4rem;
+}
+.todo__text--encourage {
+  padding: 1rem 0.6rem;
 }
 
 .error {
