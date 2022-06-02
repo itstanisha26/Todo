@@ -12,24 +12,23 @@
     <div class="container">
       <h1>Your Todo</h1>
       <div class="todo__container">
-        <div class="icons-container">
+        <form class="icons-container">
           <input
-            maxlength="35"
+            maxlength="30"
             type="text"
             class="todo__input"
             placeholder="List your todo now!"
           />
 
-          <div class="icon-container icon-container--add">
+          <button class="icon-container icon-container--add">
             <ion-icon name="add-outline" class="icon add-icon"></ion-icon>
-          </div>
-        </div>
+          </button>
+        </form>
         <h2>Work to complete</h2>
         <div class="todo__task-container">
           <p class="todo__text--encourage">Have no work to-do! Enjoy ;)</p>
         </div>
       </div>
-      <p class="error">Please write something!</p>
     </div>
 
     <script src="script.js"></script>

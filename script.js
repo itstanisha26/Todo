@@ -1,12 +1,11 @@
 'use script';
 
 const inputEl = document.querySelector('.todo__input');
-const todoContainer = document.querySelector('.todo__container');
-const errorMssg = document.querySelector('.error');
 const textEncourage = document.querySelector('.todo__text--encourage');
 const todoTaskContainer = document.querySelector('.todo__task-container');
 const h2 = document.querySelector('h2');
 const addIcon = document.querySelector('.icon-container--add');
+const todoContainer = document.querySelector('.todo__container');
 
 const colors = ['#FFD333', '#FF7E44', '#FF4060', '#E52EE5', '#C34CFF'];
 const randomColor = () => Math.floor(Math.random() * colors.length);
@@ -17,8 +16,11 @@ inputEl.addEventListener('keydown', (e) => {
 
   if (!inputValue) return;
   textEncourage.style.display = 'none';
+
   if (inputValue && e.key === 'Enter') {
     todoArray.push(inputValue);
+    e.preventDefault();
+
     h2.style.display = 'block';
 
     const todo = `
