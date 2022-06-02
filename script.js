@@ -6,25 +6,23 @@ const errorMssg = document.querySelector('.error');
 const textEncourage = document.querySelector('.todo__text--encourage');
 const todoTaskContainer = document.querySelector('.todo__task-container');
 const h2 = document.querySelector('h2');
+const addIcon = document.querySelector('.icon-container--add');
 
 const colors = ['#FFD333', '#FF7E44', '#FF4060', '#E52EE5', '#C34CFF'];
 const randomColor = () => Math.floor(Math.random() * colors.length);
 let todoArray = [];
 
 inputEl.addEventListener('keydown', (e) => {
-  let inputValue = inputEl.value;
-  errorMssg.style.display = 'none';
+  let inputValue = inputEl.value.toLowerCase();
+
+  if (!inputValue) return;
   textEncourage.style.display = 'none';
-
-  todoArray.push(inputValue);
-  let filteredArray = todoArray.filter((t) => t !== '');
-
   if (inputValue && e.key === 'Enter') {
+    todoArray.push(inputValue);
     h2.style.display = 'block';
-    const todo = document.createElement('p');
 
-    todo.innerHTML = `
-    <div class='todo__task' style="background: ${colors[randomColor()]}">
+    const todo = `
+      <div class='todo__task' style="background: ${colors[randomColor()]}">
        <span class='todo__text'> ${inputValue}</span>
        <div class='icons-container'>
          <div class='icon-container icon-container--done'>
@@ -35,28 +33,31 @@ inputEl.addEventListener('keydown', (e) => {
          </div>
        </div>
      </div>
-`;
-    todoTaskContainer.append(todo);
+    `;
+    todoTaskContainer.insertAdjacentHTML('beforebegin', todo);
 
     // Implementing icon functionality
     const deleteIcon = document.querySelectorAll('.delete-icon');
-    const iconDone = document.querySelectorAll('.icon-container--done');
+    const iconDone = document.querySelectorAll('.done-icon');
 
-    const workTodo = (i) => {
+    todoArray.forEach((a, i) => {
+      deleteIcon[i].addEventListener('click', (e) => {
+        const parent = e.target.closest('.todo__task');
+        parent.remove();
+        todoArray = todoArray.filter((t) => t !== a);
+        if (todoArray.length === 0) {
+          textEncourage.style.display = 'block';
+          h2.style.display = 'none';
+        }
+      });
+    });
+
+    iconDone.forEach((i) => {
       i.addEventListener('click', (e) => {
         const parent = e.target.closest('.todo__task');
-        i.classList.contains('delete-icon')
-          ? parent.remove()
-          : (parent.style.opacity = 0.4);
+        parent.style.opacity = 0.4;
       });
-    };
-
-    deleteIcon.forEach((i) => workTodo(i));
-    iconDone.forEach((i) => workTodo(i));
-
+    });
     inputEl.value = '';
   }
-
-  // If input is empty
-  else if (e.key === 'Enter') errorMssg.style.display = 'block';
 });
